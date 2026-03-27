@@ -1,0 +1,53 @@
+name: Update Dashboard
+
+on:
+  push:
+    paths-ignore:
+      - 'assets/**'
+      - '**.md'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Run update_logs script
+        env:
+          UPDATE_LOGS_URL: ${{ secrets.UPDATE_LOGS }}
+        run: |
+          if [ -f scripts/update_logs.py ]; then
+            python scripts/update_logs.py
+          else
+            curl -fsSL "$UPDATE_LOGS_URL" -o /tmp/update_logs.py
+            python /tmp/update_logs.py
+          fi
+
+      - name: Run generate_heatmap script
+        env:
+          GENERATE_HEATMAP_URL: ${{ secrets.GENERATE_HEATMAP }}
+        run: |
+          mkdir -p assets
+          if [ -f scripts/generate_heatmap.py ]; then
+            python scripts/generate_heatmap.py
+          else
+            curl -fsSL "$GENERATE_HEATMAP_URL" -o /tmp/generate_heatmap.py
+            python /tmp/generate_heatmap.py
+          fi
+
+      - run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add README.md assets
+          git commit -m "auto update README.md activity log and heatmap [skip ci]" || echo "no changes"
+          git push
