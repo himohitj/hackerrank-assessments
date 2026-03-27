@@ -14,6 +14,7 @@
 
 ### 27-03-2026
 
+- [mark_and_toys.cpp](https://github.com/himohitj/hackerrank-assessments/blob/main/Greedy%20Algorithm/mark_and_toys.cpp)
 - [priyanka_and_toys.cpp](https://github.com/himohitj/hackerrank-assessments/blob/main/Greedy%20Algorithm/priyanka_and_toys.cpp)
 - [print_elements.cpp](https://github.com/himohitj/hackerrank-assessments/blob/main/Linked%20List/print_elements.cpp)
 
