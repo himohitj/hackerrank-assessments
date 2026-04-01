@@ -10,6 +10,15 @@
 ## 2026
 
 <details open>
+<summary>April 2026</summary>
+
+### 01-04-2026
+
+- [print_elements_in_reverse.cpp](https://github.com/himohitj/hackerrank-assessments/blob/main/Linked%20List/print_elements_in_reverse.cpp)
+
+</details>
+
+<details>
 <summary>March 2026</summary>
 
 ### 27-03-2026
