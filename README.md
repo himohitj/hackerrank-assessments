@@ -16,6 +16,10 @@
 
 - [print_elements_in_reverse.cpp](https://github.com/himohitj/hackerrank-assessments/blob/main/Linked%20List/print_elements_in_reverse.cpp)
 
+### 02-04-2026
+
+- [grading_students.cpp](https://github.com/himohitj/hackerrank-assessments/blob/main/Arrays/grading_students.cpp)
+
 </details>
 
 <details>
